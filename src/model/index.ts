@@ -45,3 +45,14 @@ export interface RouteConfig {
   endPoint: string, 
   timeout: number
 }
+
+export interface Location {
+  address1 : string,
+  city: string
+}
+
+export interface Restaurant {
+  id: string, 
+  name: string, 
+  location: Location, 
+}

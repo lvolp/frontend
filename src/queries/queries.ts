@@ -26,7 +26,7 @@ export const currentView = Query({
   fetch: ({ location }) => Promise.resolve(locationToView(location))
 });
 
-export const yelpRestourants = Query({
+export const yelpRestaurants = Query({
   // using the `available` cache strategy means this value will be cached in memory
   // indefinitely after it is fetched for the first time
   cacheStrategy: available,

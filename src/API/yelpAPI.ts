@@ -3,7 +3,7 @@ import * as m from '../model'
 //as Promise<Array<[string,string]>>
 export default function getRoutes(config: m.RouteConfig) {
     return { 
-        getRestaurants : function (location: string, radius: number) : Promise<Array<[string,string]>> {
+        getRestaurants : function (location: string, radius: number) : Promise<Array<m.Restaurant>> {
             return axios({
                 method: 'GET',
                 url: `${config.endPoint}/businesses/search`,
@@ -18,11 +18,8 @@ export default function getRoutes(config: m.RouteConfig) {
                   'Cache-Control': 'no-cache, no-store',
                 },
                 timeout: config.timeout
-              })
-              .then(res => {
-                var businesses : Array<any> = res.data.businesses
-                var result = businesses.map(function (r){return [`${r["alias"]}`,`${r["name"]} - ${r["location"]["address1"]}, ${r["location"]["city"]}`]});
-                return result;
+              }) .then(res => {
+                return res.data.businesses
               }).catch(e => {
                   console.error(e);
                   throw e;

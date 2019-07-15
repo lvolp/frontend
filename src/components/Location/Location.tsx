@@ -4,29 +4,30 @@ import ScrollView from 'buildo-react-components/lib/ScrollView'
 import "buildo-react-components/src/ScrollView/scrollView.scss"
 import { FormattedMessage } from 'react-intl';
 import { declareQueries } from '@buildo/bento/data';
-import { yelpRestourants } from 'queries';
+import { yelpRestaurants } from 'queries';
+import {Restaurant} from '../../model'
 
 import './location.scss';
 
-const queries = declareQueries({ yelpRestourants });
+const queries = declareQueries({ yelpRestaurants });
 
 const RestaurantList = queries(
-  ({ yelpRestourants }: typeof queries.Props) =>
-    !yelpRestourants.ready ? (
+  ({ yelpRestaurants }: typeof queries.Props) =>
+    !yelpRestaurants.ready ? (
       <View>...</View>
     ) : (
       <View  marginTop="20px" marginBottom="20px">
       <ScrollView>
         <ul>
-        {listItems(yelpRestourants.value)}
+        {listItems(yelpRestaurants.value)}
         </ul>
         </ScrollView>
         </View>
      )
 );
 
-function listItems(list : Array<[string,string]>) {
-  var listElements = list.map((r)=> <li key={r[0]}>{r[1]}</li>)
+function listItems(list : Array<Restaurant>) {
+  var listElements = list.map((r)=> <li key={r.id}>{`${r.name}-${r.location.address1},${r.location.city}`}</li>)
   return listElements
 }
 
