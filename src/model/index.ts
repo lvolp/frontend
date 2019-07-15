@@ -40,3 +40,8 @@ export function viewToLocation(view: CurrentView): HistoryLocation {
       return { pathname: '/', search: {} };
   }
 }
+
+export interface RouteConfig {
+  endPoint: string, 
+  timeout: number
+}

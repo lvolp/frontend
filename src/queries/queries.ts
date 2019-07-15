@@ -8,7 +8,7 @@ A few basic ones come out of the box with bento-data: you can see an example of 
 */
 
 import { Query, available, location } from '@buildo/bento/data';
-import * as API from 'API';
+import API from '../API/API';
 import * as t from 'io-ts';
 import { locationToView } from 'model';
 
@@ -39,5 +39,5 @@ export const yelpRestourants = Query({
 
   // `fetch()` receives in input the input `params` and
   // delegates the actual API call the a dedicated API method
-  fetch: ({ location, radius }) => API.getRestaurants(location,radius)
+  fetch: ({ location, radius }) => API.api.getRestaurants(location,radius)
 });

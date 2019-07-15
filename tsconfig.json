@@ -2,9 +2,10 @@
   "extends": "./node_modules/scriptoni/lib/scripts/webpack/tsconfig.json",
   "compilerOptions": {
     "baseUrl": ".",
+    "sourceMap": true,
+    "removeComments": true,
+    "allowJs": true
   },
-  "include": [
-    "src/**/*",
-    "typings"
-  ]
+  "include": ["src/**/*", "typings"],
+  "exclude": ["node_modules", "**/*.spec.ts"]
 }

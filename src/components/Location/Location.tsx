@@ -10,7 +10,7 @@ import './location.scss';
 
 const queries = declareQueries({ yelpRestourants });
 
-const RestourantList = queries(
+const RestaurantList = queries(
   ({ yelpRestourants }: typeof queries.Props) =>
     !yelpRestourants.ready ? (
       <View>...</View>
@@ -37,7 +37,7 @@ type State = {
   showError: boolean;
 };
 
-export default class Hello extends React.Component<{}, State> {
+export default class Location extends React.Component<{}, State> {
   
   state = {
     location: "Milano",
@@ -95,7 +95,7 @@ export default class Hello extends React.Component<{}, State> {
           )} 
           <button style={{marginTop:"5px"}} onClick={()=>onButtonClick()}>Search</button>
         </View>
-        <RestourantList radius={radius*1000} location={location} />
+        <RestaurantList radius={radius*1000} location={location} />
       </View>
     );
   }
