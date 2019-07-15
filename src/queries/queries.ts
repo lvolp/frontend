@@ -26,17 +26,18 @@ export const currentView = Query({
   fetch: ({ location }) => Promise.resolve(locationToView(location))
 });
 
-export const randomName = Query({
+export const yelpRestourants = Query({
   // using the `available` cache strategy means this value will be cached in memory
   // indefinitely after it is fetched for the first time
   cacheStrategy: available,
 
   // define the input params the query requires in order to `fetch()`
   params: {
-    length: t.number
+    location: t.string,
+    radius: t.number
   },
 
   // `fetch()` receives in input the input `params` and
   // delegates the actual API call the a dedicated API method
-  fetch: ({ length }) => API.getRandomName(length)
+  fetch: ({ location, radius }) => API.getRestaurants(location,radius)
 });

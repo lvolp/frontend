@@ -7,18 +7,8 @@ ready to be used by components of our app.
 
 */
 
-import { Command, doUpdateLocation } from '@buildo/bento/data';
-import { randomName } from 'queries';
+import { doUpdateLocation } from '@buildo/bento/data';
 
 export { doUpdateLocation };
 
-export const doRefreshUsername = Command({
-  // doesn't have any input param
-  params: {},
 
-  // when successful, should invaldiate this bento-data query
-  invalidates: { randomName },
-
-  // doesn't perform any operation: it exists only to refresh the `randomName` query
-  run: Promise.resolve.bind(Promise)
-});

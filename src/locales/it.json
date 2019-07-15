@@ -4,6 +4,6 @@
   ],
   "messages": {
     "Hello.hello": "Ciao {name}!",
-    "Hello.warningLength": "la lunghezza del nome deve essere compresa tra 6 e 50"
+    "Hello.radiusWarning": "il raggio deve essere compreso tra 1 e 40"
   }
 }
