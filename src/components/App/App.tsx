@@ -12,8 +12,7 @@ In this simple example it does a bit of both.
 
 import * as React from 'react';
 import View from 'View';
-import SwitchViewDropdown from 'SwitchViewDropdown';
-import Hello from 'Hello';
+import Location from 'Location';
 import { declareQueries } from '@buildo/bento/data';
 import { currentView } from 'queries';
 
@@ -23,12 +22,10 @@ const queries = declareQueries({ currentView });
 
 class App extends React.Component<typeof queries.Props> {
   render() {
-    const { currentView } = this.props;
     return (
-      <View column className="app">
-        <h1>Bento App</h1>
-        <SwitchViewDropdown />
-        {currentView.ready && currentView.value === 'hello' && <Hello />}
+      <View column className="app" height="100%" >
+        <h1>Yelp App</h1>
+        <Location/>
       </View>
     );
   }

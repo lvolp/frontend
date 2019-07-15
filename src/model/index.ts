@@ -25,12 +25,10 @@ import { HistoryLocation } from '@buildo/bento/data';
 
 export { HistoryLocation };
 
-export type CurrentView = 'home' | 'hello';
+export type CurrentView = 'home' ;
 
 export function locationToView(location: HistoryLocation): CurrentView {
   switch (location.pathname) {
-    case '/hello':
-      return 'hello';
     default:
       return 'home';
   }
@@ -38,9 +36,23 @@ export function locationToView(location: HistoryLocation): CurrentView {
 
 export function viewToLocation(view: CurrentView): HistoryLocation {
   switch (view) {
-    case 'hello':
-      return { pathname: '/hello', search: {} };
-    default:
+     default:
       return { pathname: '/', search: {} };
   }
+}
+
+export interface RouteConfig {
+  endPoint: string, 
+  timeout: number
+}
+
+export interface Location {
+  address1 : string,
+  city: string
+}
+
+export interface Restaurant {
+  id: string, 
+  name: string, 
+  location: Location, 
 }

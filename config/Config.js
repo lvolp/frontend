@@ -22,7 +22,7 @@ const t = require('io-ts');
 module.exports = t.type(
   {
     port: t.union([t.number, t.undefined]),
-    bundle: t.strict({})
+    bundle: t.strict({endPoint: t.string})
   },
   'Config'
 );

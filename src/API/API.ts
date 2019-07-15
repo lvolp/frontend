@@ -1,7 +1,11 @@
-export const getRandomName = (length: number) => {
-  return fetch(`http://uinames.com/api/?minlen=${length}&maxlen=${length}`)
-    .then(res => res.json())
-    .then(res => {
-      return `${res.name} ${res.surname}`;
-    }) as Promise<string>;
-};
+import * as config from 'config'
+import getRoutes from './yelpAPI'
+
+const routeConfig = {
+  endPoint: config.endPoint,
+  timeout: 120000
+}
+
+const api = getRoutes(routeConfig)
+
+export default {api}
