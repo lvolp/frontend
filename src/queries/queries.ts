@@ -41,3 +41,20 @@ export const yelpRestaurants = Query({
   // delegates the actual API call the a dedicated API method
   fetch: ({ location, radius }) => API.api.getRestaurants(location,radius)
 });
+
+export const yelpRestaurantsFromCoordinates = Query({
+  // using the `available` cache strategy means this value will be cached in memory
+  // indefinitely after it is fetched for the first time
+  cacheStrategy: available,
+
+  // define the input params the query requires in order to `fetch()`
+  params: {
+    latitude: t.number,
+    longitude: t.number,
+    radius: t.number
+  },
+
+  // `fetch()` receives in input the input `params` and
+  // delegates the actual API call the a dedicated API method
+  fetch: ({ latitude,longitude, radius }) => API.api.getRestaurantsFromCoordinates(latitude,longitude,radius)
+});

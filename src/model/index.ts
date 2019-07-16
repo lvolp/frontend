@@ -46,13 +46,18 @@ export interface RouteConfig {
   timeout: number
 }
 
-export interface Location {
+export interface Address {
   address1 : string,
   city: string
+}
+
+export interface Location {
+  latitude: number,
+  longitude: number
 }
 
 export interface Restaurant {
   id: string, 
   name: string, 
-  location: Location, 
+  location: Address, 
 }
