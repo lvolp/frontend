@@ -5,3 +5,4 @@ build/*
 *.tags*
 .eslintcache
 .DS_Store
+package-lock.json
