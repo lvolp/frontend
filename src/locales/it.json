@@ -3,7 +3,6 @@
     "it"
   ],
   "messages": {
-    "Hello.hello": "Ciao {name}!",
-    "Hello.radiusWarning": "il raggio deve essere compreso tra 1 e 40"
+    "Location.radiusWarning": "il raggio deve essere compreso tra 1 e 40"
   }
 }
